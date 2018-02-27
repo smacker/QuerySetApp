@@ -1,6 +1,7 @@
 package tech.sourced.queryset
 
 import tech.sourced.engine.Engine
+import java.util.Calendar
 
 
 trait QueryExecutor {
@@ -16,6 +17,7 @@ trait QueryExecutor {
   }
 
   def time[R](block: => R): R = {
+    println("Start next block: " + Calendar.getInstance().getTime())
     val t0 = System.nanoTime()
     val result = block    // call-by-name
     val t1 = System.nanoTime()
